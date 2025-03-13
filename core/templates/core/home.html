@@ -65,7 +65,7 @@
                                 <a href="blog-grid.html" class="categorie">{{category.title}}</a>
                                 {% endfor %}
                                 <h5>
-                                    <a href="post-default.html">{{article.title}}</a>
+                                    <a href="{% url "blog:article_detail" article.slug %}">{{article.title}}</a>
                                 </h5>
                                 <p>{{article.description|truncatewords:15}}</p>
                                 <div class="post-card-info">
