@@ -1,0 +1,128 @@
+{% load static %}
+
+ <!--widget-latest-posts-->
+ <div class="widget ">
+    <div class="section-title">
+        <h5>نوشته های اخیر</h5>
+    </div>
+    <ul class="widget-latest-posts">
+        {% for article in latest_articles %}
+        <li class="last-post">
+            <div class="image">
+                <a href="{% url "blog:article_detail" article.slug %}">
+                    <img src="{{article.image.url}}" alt="...">
+                </a>
+            </div>
+            <div class="content">
+                <p>
+                    <a href="{% url "blog:article_detail" article.slug %}">{{article.title}}</a>
+                </p>
+                <small>
+                    <span class="icon_clock_alt"></span>{{article.created}}</small>
+            </div>
+        </li>
+        {% endfor %}
+        
+    </ul>
+</div>
+<!--/-->
+
+<!--widget-categories-->
+<div class="widget">
+    <div class="section-title">
+        <h5>دسته بندیها</h5>
+    </div>
+    <ul class="widget-categories">
+        {% for category in categories %}
+        <li>
+            <a href="#" class="categorie">{{category.title}} </a>
+            <span class="ml-auto">{{category.articles.count}} مقاله </span>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+<!--/-->
+
+<!--widget-instagram-->
+<div class="widget">
+    <div class="section-title">
+        <h5>اینستگرام</h5>
+    </div>
+    <ul class="widget-instagram">
+        <li>
+            <a class="image" href="#">
+                <img src="assets/img/instagram/1.jpg" alt="">
+            </a>
+        </li>
+        <li>
+            <a class="image" href="#">
+                <img src="assets/img/instagram/2.jpg" alt="">
+            </a>
+        </li>
+        <li>
+            <a class="image" href="#">
+                <img src="assets/img/instagram/3.jpg" alt="">
+            </a>
+        </li>
+        <li>
+            <a class="image" href="#">
+                <img src="assets/img/instagram/4.jpg" alt="">
+            </a>
+        </li>
+        <li>
+            <a class="image" href="#">
+                <img src="assets/img/instagram/5.jpg" alt="">
+            </a>
+        </li>
+        <li>
+            <a class="image" href="#">
+                <img src="assets/img/instagram/6.jpg" alt="">
+            </a>
+        </li>
+    </ul>
+
+</div>
+<!--/-->
+
+<!--widget-tags-->
+<div class="widget">
+    <div class="section-title">
+        <h5>برچسب ها</h5>
+    </div>
+    <div class="widget-tags">
+        <ul class="list-inline">
+            <li>
+                <a href="blog-grid.html">سفر</a>
+            </li>
+            <li>
+                <a href="blog-grid.html">طبیعت</a>
+            </li>
+            <li>
+                <a href="blog-grid.html">آموزش</a>
+            </li>
+            <li>
+                <a href="blog-grid.html">جنگل</a>
+            </li>
+            <li>
+                <a href="blog-grid.html">دریا</a>
+            </li>
+            <li>
+                <a href="blog-grid.html">مد و فشن</a>
+            </li>
+            <li>
+                <a href="blog-grid.html">سلامتی</a>
+            </li>
+            <li>
+                <a href="blog-grid.html">غذا</a>
+            </li>
+            <li>
+                <a href="blog-grid.html">صبحانه</a>
+            </li>
+            <li>
+                <a href="blog-grid.html">شام</a>
+            </li>
+
+        </ul>
+    </div>
+</div>
+<!--/-->

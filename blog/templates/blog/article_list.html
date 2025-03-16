@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}لیست مقالات{% endblock title %}
+{% block context %}
+
+<!--category-->
+<section class="categorie-section">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="categorie-title"> 
+                    <small>
+                        <a href="{% url "core:home" %}">صفحه نخست</a>
+                        <span class="arrow_carrot-left"></span>لیست مقالات
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--blog-grid-->
+<section class="blog-grid">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-8 mt-30">
+                <div class="row">
+                    {% for article in articles %}
+                
+                        <div class="col-lg-6 col-md-6">
+                            <!--Post-7-->
+                            <div class="post-card">
+                                <div class="post-card-image">
+                                    <a href="post-default.html">
+                                        <img src="{{article.image.url}}" alt="">
+                                    </a>
+                                </div>
+                                <div class="post-card-content">
+                                    {% for category in article.category.all %}
+                                    <a href="{% url "blog:category_article" category.slug %}" class="categorie">{{category.title}}</a>
+                                    {% endfor %}
+                                    <h5>
+                                        <a href="{% url "blog:article_detail" article.slug %}">{{article.title}}</a>
+                                    </h5>
+                                    <p>{{article.description|truncatewords:30}}</p>
+                                    <div class="post-card-info">
+                                        <ul class="list-inline">
+                                            <li>
+                                                <a href="author.html">
+                                                    <img src="assets/img/author/1.jpg" alt="">
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="author.html">{{article.author.first_name}} {{article.author.last_name}}</a>
+                                            </li>
+                                            <li class="dot"></li>
+                                            <li>{{article.updated}}</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/-->
+                        </div>
+                    {% endfor %}
+                    <!--pagination-->
+                    <div class="col-lg-12">
+                        <div class="pagination mt--10">
+                            <ul class="list-inline">
+                                <li class="active">
+                                    <a href="#">1</a>
+                                </li>
+                                <li>
+                                    <a href="#">2</a>
+                                </li>
+                                <li>
+                                    <a href="#">3</a>
+                                </li>
+                                <li>
+                                    <a href="#">4</a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="arrow_carrot-2left"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    <!--/-->
+                    </div> 
+                </div>
+            </div>
+            <div class="col-lg-4 max-width">
+                    
+                <!--sidebar-->
+                {% include "includes/sidebar.html" %}
+            </div> 
+                
+        </div>
+    </div>
+</section><!--/-->
+
+{% endblock context  %}

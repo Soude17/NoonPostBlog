@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title %}{% endblock title %}
+{% block title %}{{article.title}}{% endblock title %}
 {% block context %}
   
     <!--post-default-->
@@ -15,7 +15,7 @@
                         </div>
                         <div class="post-single-content">
                             {% for category in article.category.all %}
-                            <a href="blog-grid.html" class="categorie">{{category.title}}</a> 
+                            <a href="{% url "blog:category_article" category.slug %}" class="categorie">{{category.title}}</a> 
                             {% endfor %}
                             <h4>{{article.title}}</h4>
                             <div class="post-single-info">
@@ -209,228 +209,9 @@
                     </div>
                 </div>
                 <div class="col-lg-4 max-width">
-                    <!--widget-author-->
-                    <div class="widget">
-                        <div class="widget-author">
-                            <a href="author.html" class="image">
-                                <img src="assets/img/author/1.jpg" alt="">
-                            </a>
-                            <h6>
-                                <span>من فلان فلانی نسب هستم</span>
-                            </h6>
-                            <p>من دیوید اسمیت هستم، شوهر و پدر، عاشق عکاسی، سفر و طبیعت هستم. من به عنوان نویسنده و وبلاگ نویس با 5 سال سابقه کار می کنم.</p>
-                            <div class="social-media">
-                                <ul class="list-inline">
-                                    <li>
-                                        <a href="#" class="color-facebook">
-                                            <i class="fab fa-facebook"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="color-instagram">
-                                            <i class="fab fa-instagram"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="color-twitter">
-                                            <i class="fab fa-twitter"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="color-youtube">
-                                            <i class="fab fa-youtube"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="color-pinterest">
-                                            <i class="fab fa-pinterest"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!--/-->
-
-                    <!--widget-latest-posts-->
-                    <div class="widget ">
-                        <div class="section-title">
-                            <h5>نوشته های اخیر</h5>
-                        </div>
-                        <ul class="widget-latest-posts">
-                            <li class="last-post">
-                                <div class="image">
-                                    <a href="post-default.html">
-                                        <img src="assets/img/latest/1.jpg" alt="...">
-                                    </a>
-                                </div>
-                                <div class="nb">1</div>
-                                <div class="content">
-                                    <p>
-                                        <a href="post-default.html">5 چیزی که ای کاش قبل از سفر به مالزی می دانستم</a>
-                                    </p>
-                                    <small>
-                                        <span class="icon_clock_alt"></span> 15 خرداد 1400</small>
-                                </div>
-                            </li>
-                            <li class="last-post">
-                                <div class="image">
-                                    <a href="post-default.html">
-                                        <img src="assets/img/latest/2.jpg" alt="...">
-                                    </a>
-                                </div>
-                                <div class="nb">2</div>
-                                <div class="content">
-                                    <p>
-                                        <a href="post-default.html">5 چیزی که ای کاش قبل از سفر به مالزی می دانستم</a>
-                                    </p>
-                                    <small>
-                                        <span class="icon_clock_alt"></span> 15 خرداد 1400</small>
-                                </div>
-                            </li>
-                            <li class="last-post">
-                                <div class="image">
-                                    <a href="post-default.html">
-                                        <img src="assets/img/latest/3.jpg" alt="...">
-                                    </a>
-                                </div>
-                                <div class="nb">3</div>
-                                <div class="content">
-                                    <p>
-                                        <a href="post-default.html">5 چیزی که ای کاش قبل از سفر به مالزی می دانستم</a>
-                                    </p>
-                                    <small>
-                                        <span class="icon_clock_alt"></span> 15 خرداد 1400</small>
-                                </div>
-                            </li>
-                            <li class="last-post">
-                                <div class="image">
-                                    <a href="post-default.html">
-                                        <img src="assets/img/latest/4.jpg" alt="...">
-                                    </a>
-                                </div>
-                                <div class="nb">4</div>
-                                <div class="content">
-                                    <p>
-                                        <a href="post-default.html">5 چیزی که ای کاش قبل از سفر به مالزی می دانستم</a>
-                                    </p>
-                                    <small>
-                                        <span class="icon_clock_alt"></span> 15 خرداد 1400</small>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <!--/-->
-                
-                    <!--widget-categories-->
-                    <div class="widget">
-                        <div class="section-title">
-                            <h5>دسته بندیها</h5>
-                        </div>
-                        <ul class="widget-categories">
-                            <li>
-                                <a href="#" class="categorie">سبک زندگی</a>
-                                <span class="ml-auto">22 نوشته</span>
-                            </li>
-                            <li>
-                                <a href="#" class="categorie">مسافرت</a>
-                                <span class="ml-auto">18 نوشته</span>
-                            </li>
-                            <li>
-                                <a href="#" class="categorie">فست فود</a>
-                                <span class="ml-auto">14 نوشته</span>
-                            </li>
-                            <li>
-                                <a href="#" class="categorie">مد و فشن</a>
-                                <span class="ml-auto">10 نوشته</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <!--/-->
-                
-                    <!--widget-instagram-->
-                    <div class="widget">
-                        <div class="section-title">
-                            <h5>اینستگرام</h5>
-                        </div>
-                        <ul class="widget-instagram">
-                            <li>
-                                <a class="image" href="#">
-                                    <img src="assets/img/instagram/1.jpg" alt="">
-                                </a>
-                            </li>
-                            <li>
-                                <a class="image" href="#">
-                                    <img src="assets/img/instagram/2.jpg" alt="">
-                                </a>
-                            </li>
-                            <li>
-                                <a class="image" href="#">
-                                    <img src="assets/img/instagram/3.jpg" alt="">
-                                </a>
-                            </li>
-                            <li>
-                                <a class="image" href="#">
-                                    <img src="assets/img/instagram/4.jpg" alt="">
-                                </a>
-                            </li>
-                            <li>
-                                <a class="image" href="#">
-                                    <img src="assets/img/instagram/5.jpg" alt="">
-                                </a>
-                            </li>
-                            <li>
-                                <a class="image" href="#">
-                                    <img src="assets/img/instagram/6.jpg" alt="">
-                                </a>
-                            </li>
-                        </ul>
-                
-                    </div>
-                    <!--/-->
-                
-                    <!--widget-tags-->
-                    <div class="widget">
-                        <div class="section-title">
-                            <h5>برچسب ها</h5>
-                        </div>
-                        <div class="widget-tags">
-                            <ul class="list-inline">
-                                <li>
-                                    <a href="blog-grid.html">سفر</a>
-                                </li>
-                                <li>
-                                    <a href="blog-grid.html">طبیعت</a>
-                                </li>
-                                <li>
-                                    <a href="blog-grid.html">آموزش</a>
-                                </li>
-                                <li>
-                                    <a href="blog-grid.html">جنگل</a>
-                                </li>
-                                <li>
-                                    <a href="blog-grid.html">دریا</a>
-                                </li>
-                                <li>
-                                    <a href="blog-grid.html">مد و فشن</a>
-                                </li>
-                                <li>
-                                    <a href="blog-grid.html">سلامتی</a>
-                                </li>
-                                <li>
-                                    <a href="blog-grid.html">غذا</a>
-                                </li>
-                                <li>
-                                    <a href="blog-grid.html">صبحانه</a>
-                                </li>
-                                <li>
-                                    <a href="blog-grid.html">شام</a>
-                                </li>
-                
-                            </ul>
-                        </div>
-                    </div>
-                    <!--/-->
+                    
+                    <!--sidebar-->
+                    {% include "includes/sidebar.html" %}
                 </div> 
             </div>
         </div>
