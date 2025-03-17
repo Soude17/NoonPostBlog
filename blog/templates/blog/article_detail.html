@@ -39,7 +39,7 @@
                                 <ul class="list-inline">
                                     {% for tag in  article.tags.all %}
                                     <li>
-                                        <a href="blog-grid.html">{{tag.title}}</a>
+                                        <a href="{% url "blog:tag_article" tag.slug%}">{{tag.title}}</a>
                                     </li>
                                     {% endfor %}
                                 </ul>
@@ -76,50 +76,7 @@
                         </div>
                     </div> <!--/-->
 
-                    <!--next & previous-posts-->
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="widget">
-                                <div class="widget-next-post">
-                                    <div class="small-post">
-                                        <div class="image">
-                                            <a href="post-default.html">
-                                            <img src="assets/img/latest/1.jpg" alt="...">
-                                            </a>                                          
-                                        </div>
-                                        <div class="content">
-                                            <div>
-                                                <a class="link" href="post-default.html"><i class="arrow_right"></i>نوشته قبلی</a>
-                                            </div>
-                                            <a href="post-default.html">5 چیزی که ای کاش قبل از سفر به مالزی می دانستم</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="widget">
-                                <div class="widget-previous-post">
-                                    <div class="small-post">
-                                        <div class="image">
-                                            <a href="post-default.html">
-                                               <img src="assets/img/blog/2.jpg" alt="...">
-                                            </a>
-                                        </div>
-                                        <div class="content">
-                                            <div>
-                                                <a class="link" href="post-default.html">
-                                                    <span> نوشته بعدی</span>
-                                                    <span class="arrow_left"></span>
-                                                </a>
-                                            </div>
-                                            <a href="post-default.html">5 چیزی که ای کاش قبل از سفر به مالزی می دانستم</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div><!--/-->
+                   
 
                     <!--widget-comments-->
                     <div class="widget mb-50">

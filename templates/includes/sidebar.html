@@ -35,7 +35,7 @@
     <ul class="widget-categories">
         {% for category in categories %}
         <li>
-            <a href="#" class="categorie">{{category.title}} </a>
+            <a href="{% url "blog:category_article" category.slug %}" class="categorie">{{category.title}} </a>
             <span class="ml-auto">{{category.articles.count}} مقاله </span>
         </li>
         {% endfor %}
@@ -43,46 +43,7 @@
 </div>
 <!--/-->
 
-<!--widget-instagram-->
-<div class="widget">
-    <div class="section-title">
-        <h5>اینستگرام</h5>
-    </div>
-    <ul class="widget-instagram">
-        <li>
-            <a class="image" href="#">
-                <img src="assets/img/instagram/1.jpg" alt="">
-            </a>
-        </li>
-        <li>
-            <a class="image" href="#">
-                <img src="assets/img/instagram/2.jpg" alt="">
-            </a>
-        </li>
-        <li>
-            <a class="image" href="#">
-                <img src="assets/img/instagram/3.jpg" alt="">
-            </a>
-        </li>
-        <li>
-            <a class="image" href="#">
-                <img src="assets/img/instagram/4.jpg" alt="">
-            </a>
-        </li>
-        <li>
-            <a class="image" href="#">
-                <img src="assets/img/instagram/5.jpg" alt="">
-            </a>
-        </li>
-        <li>
-            <a class="image" href="#">
-                <img src="assets/img/instagram/6.jpg" alt="">
-            </a>
-        </li>
-    </ul>
 
-</div>
-<!--/-->
 
 <!--widget-tags-->
 <div class="widget">
@@ -91,36 +52,11 @@
     </div>
     <div class="widget-tags">
         <ul class="list-inline">
-            <li>
-                <a href="blog-grid.html">سفر</a>
-            </li>
-            <li>
-                <a href="blog-grid.html">طبیعت</a>
-            </li>
-            <li>
-                <a href="blog-grid.html">آموزش</a>
-            </li>
-            <li>
-                <a href="blog-grid.html">جنگل</a>
-            </li>
-            <li>
-                <a href="blog-grid.html">دریا</a>
-            </li>
-            <li>
-                <a href="blog-grid.html">مد و فشن</a>
-            </li>
-            <li>
-                <a href="blog-grid.html">سلامتی</a>
-            </li>
-            <li>
-                <a href="blog-grid.html">غذا</a>
-            </li>
-            <li>
-                <a href="blog-grid.html">صبحانه</a>
-            </li>
-            <li>
-                <a href="blog-grid.html">شام</a>
-            </li>
+            {% for tag in tags %}
+                <li>
+                    <a href="{% url "blog:tag_article" tag.slug %}">{{tag.title}}</a>
+                </li>
+            {% endfor %}
 
         </ul>
     </div>
